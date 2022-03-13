@@ -16,7 +16,6 @@ namespace RPG.Control
         [SerializeField] float waypointTolerance = 1f;
         [SerializeField] float waypointDwellTime = 3f;
 
-
         Fighter fighter;
         Health health;
         GameObject player;
