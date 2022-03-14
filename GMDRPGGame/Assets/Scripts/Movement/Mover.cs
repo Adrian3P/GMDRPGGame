@@ -38,8 +38,6 @@ namespace RPG.Movement
         {
             navMeshAgent.destination = destination;
             navMeshAgent.isStopped = false;
-
-
         }
 
         public void Cancel()
