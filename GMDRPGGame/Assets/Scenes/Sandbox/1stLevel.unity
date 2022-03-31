@@ -901,6 +901,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: -6922270867385861885, guid: b9098fdae1b3ead4ea32b07548cfa839, type: 3}
+      propertyPath: weaponRange
+      value: 13.4
+      objectReference: {fileID: 0}
     - target: {fileID: 645025153, guid: b9098fdae1b3ead4ea32b07548cfa839, type: 3}
       propertyPath: m_IsActive
       value: 0
@@ -961,9 +965,7 @@ PrefabInstance:
       propertyPath: movingCameraSpeed
       value: 5
       objectReference: {fileID: 0}
-    m_RemovedComponents:
-    - {fileID: 8700134126039830303, guid: b9098fdae1b3ead4ea32b07548cfa839, type: 3}
-    - {fileID: 3939783836221507653, guid: b9098fdae1b3ead4ea32b07548cfa839, type: 3}
+    m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: b9098fdae1b3ead4ea32b07548cfa839, type: 3}
 --- !u!4 &1615830853 stripped
 Transform:

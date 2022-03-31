@@ -30,7 +30,6 @@ namespace RPG.Combat
             {
                 GetComponent<Mover>().Cancel();
                 AttackBehaviour();
-
             }
         }
 
@@ -89,10 +88,11 @@ namespace RPG.Combat
         public void Cancel()
         {
             StopAttack();
+            GetComponent<ActionScheduler>().CancelCurrentAction();
             target = null;
         }
 
-        private void StopAttack()
+        public void StopAttack()
         {
             GetComponent<Animator>().ResetTrigger("attack");
             GetComponent<Animator>().SetTrigger("stopAttack");
