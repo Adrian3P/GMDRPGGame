@@ -39,6 +39,7 @@
      <Compile Include="Assets\Scripts\MainMenu\Options\ResolutionOption.cs" />
      <Compile Include="Assets\Scripts\MainMenu\Options\VolumeOption.cs" />
      <Compile Include="Assets\Scripts\Control\PatrolPath.cs" />
+     <Compile Include="Assets\Scripts\DeadScreen\ButtonFunctionality.cs" />
      <Compile Include="Assets\Scripts\Inventory\InventorySystem.cs" />
      <Compile Include="Assets\Scripts\Combat\CombatTarget.cs" />
      <Compile Include="Assets\Scripts\MainMenu\SceneLoader\SceneLoader.cs" />
@@ -65,7 +66,7 @@
      <Compile Include="Assets\Scripts\MainMenu\Options\ScreenmodeOption.cs" />
      <Compile Include="Assets\Scripts\MainMenu\Core\Option.cs" />
      <Compile Include="Assets\Scripts\Core\Health.cs" />
-     <Compile Include="Assets\Scripts\DeadScreen\ButtonFunctionality.cs" />
+     <Compile Include="Assets\Scripts\HUD\HUDFunctionality.cs" />
      <None Include="Assets\Asset Packs\Synty - Polygon Student Sample\README - Usage Rights for these assets.txt" />
      <None Include="Assets\TextMesh Pro\Shaders\TMPro.cginc" />
      <None Include="Assets\TextMesh Pro\Shaders\TMP_SDF-Mobile Overlay.shader" />
