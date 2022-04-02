@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using System;
 using UnityEngine;
 using UnityEngine.UI;
 using RPG.Core;
@@ -16,6 +17,8 @@ public class HUDFunctionality : MonoBehaviour
     private TextMeshProUGUI healthText;
     private TextMeshProUGUI expText;
     private TextMeshProUGUI manaText;
+
+    private int maxHealth;
 
     void Start(){
         if (player == null)
@@ -39,7 +42,7 @@ public class HUDFunctionality : MonoBehaviour
         if (manaText == null)
             manaText = GameObject.FindWithTag("ManaText").GetComponent<TextMeshProUGUI>();
 
-        healthSlider.minValue = 0;
+        maxHealth = (int)player.GetComponent<Health>().getHealthPoints();
         healthSlider.maxValue = player.GetComponent<Health>().getHealthPoints();
     }
     // Update is called once per frame
@@ -51,6 +54,6 @@ public class HUDFunctionality : MonoBehaviour
     void updateHPTextAndSlider(){
 
         healthSlider.GetComponent<Slider>().value = player.GetComponent<Health>().getHealthPoints();
-        healthText.text = player.GetComponent<Health>().getHealthPoints().ToString();
+        healthText.text = player.GetComponent<Health>().getHealthPoints().ToString() + "/" + maxHealth;
     }
 }
