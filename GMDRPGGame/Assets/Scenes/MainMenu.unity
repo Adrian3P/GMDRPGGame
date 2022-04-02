@@ -6326,7 +6326,7 @@ MonoBehaviour:
   subOptionText: {fileID: 210312355}
   subOptionList: []
   currentSubOption:
-    name: 
+    name: 1024x768
     integerValue: 0
     indexInList: 0
     vector2Value: {x: 0, y: 0}

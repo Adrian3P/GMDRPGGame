@@ -3,6 +3,8 @@ using RPG.Movement;
 using System;
 using RPG.Combat;
 using RPG.Core;
+using TMPro;
+using UnityEngine.UI;
 
 namespace RPG.Control
 {
@@ -15,13 +17,40 @@ namespace RPG.Control
         Health health;
         GameObject mainCamera;
 
+        private GameObject targetHUD;
+        private Slider hudTargetHealth;
+        private TextMeshProUGUI hudTargetName;
+        private bool bIsAttacking = false;
+
+        private GameObject enemyTarget;
+
+        private GameObject deathScreenObject;
+
+
         private void Start()
         {
             health = GetComponent<Health>();
-            if(mainCamera == null)
+            if (mainCamera == null)
             {
                 mainCamera = GameObject.FindGameObjectWithTag("FollowCamera");
             }
+
+            if (targetHUD == null){
+                targetHUD = GameObject.FindGameObjectWithTag("TargetHUD");
+            }
+            if (hudTargetHealth == null){
+                hudTargetHealth = GameObject.FindGameObjectWithTag("HUDTargetHealth").GetComponent<Slider>();
+            }
+
+            if (hudTargetName == null){
+                hudTargetName = GameObject.FindGameObjectWithTag("HUDTargetName").GetComponent<TextMeshProUGUI>();
+            }
+            if (deathScreenObject == null){
+                deathScreenObject = GameObject.FindGameObjectWithTag("DeathScreenObject");
+            }
+
+            targetHUD.SetActive(false);
+            deathScreenObject.SetActive(false);
         }
 
         private void Update()
@@ -45,9 +74,20 @@ namespace RPG.Control
                 }
             }
 
-            if (health.IsDead()) return;
+            if (Input.GetKeyDown(KeyCode.Escape))
+            {
+                targetHUD.gameObject.SetActive(false);
+            }
+
+            updateHUD();
+            if (health.IsDead()){
+                deathScreenObject.SetActive(true);
+                return;
+            }
             if (InteractWithCombat()) return;
             if (InteractWithMovement()) return;
+            
+            
         }
 
         private bool InteractWithCombat()
@@ -56,6 +96,7 @@ namespace RPG.Control
             foreach (RaycastHit hit in hits)
             {
                 CombatTarget target = hit.transform.GetComponent<CombatTarget>();
+
                 if (target == null) 
                     continue;
 
@@ -63,15 +104,39 @@ namespace RPG.Control
                 {
                     continue;
                 }
+
                 if (Input.GetMouseButton(0))
                 {
                     GetComponent<Fighter>().Attack(target.gameObject);
+                    enemyTarget = target.gameObject;
+                    hudTargetName.text = target.transform.name;
+                    if (hit.transform.gameObject.GetComponent<Health>() != null && !bIsAttacking)
+                    {
+                        hudTargetHealth.maxValue = target.transform.gameObject.GetComponent<Health>().getHealthPoints();
+                        bIsAttacking = true;
+                    }
+                    targetHUD.SetActive(true);
                 }
                 return true;
             }
             return false;
         }
 
+        private void updateHUD(){
+            if (bIsAttacking && enemyTarget != null && enemyTarget.GetComponent<Health>() != null)
+            {
+                if (enemyTarget.GetComponent<Health>().getHealthPoints() <= 0)
+                {
+                    targetHUD.SetActive(false);
+                }
+                if (enemyTarget.GetComponent<Health>().IsDead())
+                {
+                    bIsAttacking = false;
+                }
+                hudTargetHealth.value = enemyTarget.GetComponent<Health>().getHealthPoints();
+                hudTargetHealth.gameObject.SetActive(true);
+            }
+        }
         private bool InteractWithMovement()
         {
             RaycastHit hit;
@@ -80,13 +145,16 @@ namespace RPG.Control
             {
                 if (Input.GetMouseButton(0))
                 {
+                    targetHUD.SetActive(true);
+                    enemyTarget = hit.transform.gameObject;
+                    hudTargetName.text = hit.transform.name;
+                    hudTargetHealth.gameObject.SetActive(false);
                     GetComponent<Mover>().MoveTo(hit.point);
                 }
                 return true;
             }
             return false;
         }
-
         private static Ray GetMouseRay()
         {
             return Camera.main.ScreenPointToRay(Input.mousePosition);

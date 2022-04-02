@@ -11,6 +11,10 @@ TagManager:
   - HPText
   - ManaText
   - EXPText
+  - HUDTargetName
+  - HUDTargetHealth
+  - TargetHUD
+  - DeathScreenObject
   layers:
   - Default
   - TransparentFX
