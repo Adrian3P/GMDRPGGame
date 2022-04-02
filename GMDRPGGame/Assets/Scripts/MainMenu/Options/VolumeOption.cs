@@ -13,7 +13,6 @@ namespace MainMenu.GraphicSettingsMenu
 
         [SerializeField]
         private GameObject slider;
-
         public override void Apply()
         {
             GraphicSettingHelperMethods.ChangeVolumeSettings(slider.GetComponent<Slider>().value, audioMixer);

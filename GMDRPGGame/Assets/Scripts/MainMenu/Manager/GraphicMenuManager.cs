@@ -19,6 +19,7 @@ namespace MainMenu.GraphicSettingsMenu
         {
 
             graphicSettingSaveManager = GetComponent<GraphicSettingSaveManager>();
+            resolutionOption.initializeResolutions();
 
             if(graphicSettingSaveManager.FileExists())
             {

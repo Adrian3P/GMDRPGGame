@@ -10,12 +10,9 @@ namespace MainMenu.GraphicSettingsMenu
     /// </summary>
     public class ResolutionOption : Option
     {
-        
-       private void Awake()
-        {
+        public void initializeResolutions(){
             Initialize();
         }
-
         private void Initialize()
         {
             GenerateResolutionSubOptions();
