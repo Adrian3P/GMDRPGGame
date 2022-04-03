@@ -27,7 +27,7 @@ namespace RPG.Control
         private GameObject deathScreenObject;
 
 
-        private void Start()
+        public void Awake()
         {
             health = GetComponent<Health>();
             if (mainCamera == null)
