@@ -151,19 +151,6 @@ MonoBehaviour:
   weaponRange: 2
   timeBetweenAttacks: 1.25
   weaponDamage: 5
---- !u!114 &3939783836221507653
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1249694949535515933}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: dabee36b3fd0e9e4d9c5a8af928d6c22, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  healthPoints: 100
 --- !u!114 &5149630894850527184
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -188,6 +175,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cd3363520d26d414ca88504ba477bb87, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  movingCameraSpeed: 2
 --- !u!4 &2139370697268466797 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4815293301853260519, guid: 67d597c0b9b3d0340afa4d3786cf7b7f, type: 3}
