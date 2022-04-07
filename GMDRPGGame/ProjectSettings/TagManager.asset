@@ -3,18 +3,7 @@
 --- !u!78 &1
 TagManager:
   serializedVersion: 2
-  tags:
-  - FollowCamera
-  - HPSlider
-  - ManaSlider
-  - EXPSlider
-  - HPText
-  - ManaText
-  - EXPText
-  - HUDTargetName
-  - HUDTargetHealth
-  - TargetHUD
-  - DeathScreenObject
+  tags: []
   layers:
   - Default
   - TransparentFX
