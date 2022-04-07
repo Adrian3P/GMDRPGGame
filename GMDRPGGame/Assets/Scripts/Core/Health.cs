@@ -22,6 +22,10 @@ namespace RPG.Core
             }
         }
 
+        public float getHealthPoints(){
+            return healthPoints;
+        }
+
         private void Die()
         {
             if (isDead) return;
