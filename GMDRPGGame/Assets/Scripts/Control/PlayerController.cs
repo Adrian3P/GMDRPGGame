@@ -27,7 +27,7 @@ namespace RPG.Control
         private GameObject deathScreenObject;
 
 
-        public void Start()
+        public void Awake()
         {
             health = GetComponent<Health>();
             if (mainCamera == null)
@@ -48,7 +48,6 @@ namespace RPG.Control
             if (deathScreenObject == null){
                 deathScreenObject = GameObject.FindGameObjectWithTag("DeathScreenObject");
             }
-
             targetHUD.SetActive(false);
             deathScreenObject.SetActive(false);
         }

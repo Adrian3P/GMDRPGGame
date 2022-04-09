@@ -24,22 +24,23 @@ namespace RPG.Combat
         {
             timeSinceLastAttack += Time.deltaTime;
 
-            if (target == null) return;
-            if (target.IsDead()) return;
-
-
-            if (!GetIsInRange() && !target.IsDead())
+            if ( target != null && !target.IsDead() && !GetComponent<Health>().IsDead())
             {
-                GetComponent<Mover>().MoveTo(target.transform.position);
-                if (GetIsInRange())
+                if (!GetIsInRange())
                 {
-                    GetComponent<Mover>().Cancel();
+                    GetComponent<Mover>().MoveTo(target.transform.position);
+
+                    if (GetIsInRange())
+                    {
+                        GetComponent<Mover>().Cancel();
+                    }
+                }
+                else if (GetIsInRange())
+                {
+                    AttackBehaviour();
                 }
             }
-            else if (GetIsInRange() && !target.IsDead())
-            {
-                AttackBehaviour();
-            }
+
         }
 
         public void EquipWeapon(Weapon weapon)
