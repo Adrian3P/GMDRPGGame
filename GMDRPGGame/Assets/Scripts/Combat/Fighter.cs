@@ -20,8 +20,6 @@ namespace RPG.Combat
             EquipWeapon(defaultWeapon);
         }
 
-
-
         private void Update()
         {
             timeSinceLastAttack += Time.deltaTime;
@@ -55,7 +53,6 @@ namespace RPG.Combat
 
             if (timeSinceLastAttack > timeBetweenAttacks)
             {
-                //This will trigger the Hit() event
                 TriggerAttack();
                 timeSinceLastAttack = 0;
 
