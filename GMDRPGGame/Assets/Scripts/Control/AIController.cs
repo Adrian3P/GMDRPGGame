@@ -38,7 +38,6 @@ namespace RPG.Control
 
         private void Update()
         {
-            if (health.IsDead()) return;
             if (InAttackRangeOfPlayer() && fighter.CanAttack(player))
             {
                 AttackBehaviour();
@@ -46,7 +45,6 @@ namespace RPG.Control
             else if (timeSinceLastSawPlayer < suspicionTime)
             {
                 SuspicionBehaviour();
-
             }
             else
             {
@@ -64,6 +62,7 @@ namespace RPG.Control
         private void PatrolBehaviour()
         {
             Vector3 nextPosition = guardPosition;
+
             if (patrolPath != null)
             {
                 if (AtWaypoint())

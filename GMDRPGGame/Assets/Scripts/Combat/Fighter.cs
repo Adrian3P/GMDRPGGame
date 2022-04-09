@@ -28,13 +28,16 @@ namespace RPG.Combat
             if (target.IsDead()) return;
 
 
-            if (!GetIsInRange())
+            if (!GetIsInRange() && !target.IsDead())
             {
                 GetComponent<Mover>().MoveTo(target.transform.position);
+                if (GetIsInRange())
+                {
+                    GetComponent<Mover>().Cancel();
+                }
             }
-            else
+            else if (GetIsInRange() && !target.IsDead())
             {
-                GetComponent<Mover>().Cancel();
                 AttackBehaviour();
             }
         }
@@ -55,7 +58,6 @@ namespace RPG.Combat
             {
                 TriggerAttack();
                 timeSinceLastAttack = 0;
-
             }
         }
 
@@ -69,11 +71,10 @@ namespace RPG.Combat
         //Animation Event
         void Hit()
         {
-            if (target == null)
+            if (target)
             {
-                return;
+                target.TakeDamage(currentWeapon.GetDamage());
             }
-            target.TakeDamage(currentWeapon.GetDamage());
         }
 
         private bool GetIsInRange()
