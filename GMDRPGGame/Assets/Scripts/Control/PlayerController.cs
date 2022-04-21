@@ -52,7 +52,6 @@ namespace RPG.Control
             if (deathScreenObject == null){
                 deathScreenObject = GameObject.FindGameObjectWithTag("DeathScreenObject");
             }
-
             targetHUD.SetActive(false);
             deathScreenObject.SetActive(false);
             inventory = new InventorySystem();

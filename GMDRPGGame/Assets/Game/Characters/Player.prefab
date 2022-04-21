@@ -61,6 +61,11 @@ PrefabInstance:
       objectReference: {fileID: 2100000, guid: 3f6fc0cf5e5d31c458bc74ede87cb8ae, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 679ff741e12a7e740819ede24a7000b7, type: 3}
+--- !u!4 &645349059 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 461188, guid: 679ff741e12a7e740819ede24a7000b7, type: 3}
+  m_PrefabInstance: {fileID: 644888391}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &6873559483287150218
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -68,6 +73,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 239591499728383699, guid: 67d597c0b9b3d0340afa4d3786cf7b7f, type: 3}
+      propertyPath: m_IsKinematic
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 2530093343729884107, guid: 67d597c0b9b3d0340afa4d3786cf7b7f, type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
@@ -148,9 +157,26 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6a094463b67de704c89982226ba687dd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  weaponRange: 2
   timeBetweenAttacks: 1.25
+
+  handTransform: {fileID: 645349059}
+  defaultWeapon: {fileID: 11400000, guid: 087835bd82a90484192c0ecd82dc40a2, type: 2}
+--- !u!114 &3939783836221507653
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1249694949535515933}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dabee36b3fd0e9e4d9c5a8af928d6c22, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  healthPoints: 100
+
   weaponDamage: 5
+
 --- !u!114 &5149630894850527184
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -175,7 +201,24 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cd3363520d26d414ca88504ba477bb87, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  
+--- !u!136 &9145398515048805153
+CapsuleCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1249694949535515933}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  m_Radius: 0.5
+  m_Height: 1
+  m_Direction: 1
+  m_Center: {x: 0, y: 0, z: 0}
+
   movingCameraSpeed: 2
+
 --- !u!4 &2139370697268466797 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4815293301853260519, guid: 67d597c0b9b3d0340afa4d3786cf7b7f, type: 3}

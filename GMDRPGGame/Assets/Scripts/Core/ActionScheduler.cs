@@ -3,8 +3,6 @@ using UnityEngine;
 
 namespace RPG.Core
 {
-
-
     public class ActionScheduler : MonoBehaviour
     {
         IAction currentAction;
@@ -12,6 +10,9 @@ namespace RPG.Core
         public void StartAction(IAction action)
         {
             if (currentAction == action) return;
+
+            if (currentAction == null) return;
+            
             if (currentAction != null)
             {
                 currentAction.Cancel();
@@ -23,6 +24,5 @@ namespace RPG.Core
         {
             StartAction(null);
         }
-
     }
 }

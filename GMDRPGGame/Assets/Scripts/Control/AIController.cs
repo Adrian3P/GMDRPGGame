@@ -38,19 +38,20 @@ namespace RPG.Control
 
         private void Update()
         {
-            if (health.IsDead()) return;
-            if (InAttackRangeOfPlayer() && fighter.CanAttack(player))
+            if (!health.IsDead())
             {
-                AttackBehaviour();
-            }
-            else if (timeSinceLastSawPlayer < suspicionTime)
-            {
-                SuspicionBehaviour();
-
-            }
-            else
-            {
-                PatrolBehaviour();
+                if (InAttackRangeOfPlayer() && fighter.CanAttack(player))
+                {
+                    AttackBehaviour();
+                }
+                else if (timeSinceLastSawPlayer < suspicionTime)
+                {
+                    SuspicionBehaviour();
+                }
+                else
+                {
+                    PatrolBehaviour();
+                }
             }
             UpdateTimers();
         }
@@ -64,6 +65,7 @@ namespace RPG.Control
         private void PatrolBehaviour()
         {
             Vector3 nextPosition = guardPosition;
+        
             if (patrolPath != null)
             {
                 if (AtWaypoint())
@@ -98,7 +100,9 @@ namespace RPG.Control
 
         private void SuspicionBehaviour()
         {
-            GetComponent<ActionScheduler>().CancelCurrentAction();
+            if (!health.IsDead()){
+                GetComponent<ActionScheduler>().CancelCurrentAction();
+            }
         }
 
         private void AttackBehaviour()

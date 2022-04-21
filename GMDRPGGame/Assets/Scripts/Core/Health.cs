@@ -6,20 +6,27 @@ namespace RPG.Core
     {
         [SerializeField] float healthPoints = 100f;
 
-        bool isDead = false;
+        [SerializeField] bool isDead;
+
+        public void Start(){
+            isDead = false;
+        }
+        private void Update()
+        {
+            if (healthPoints <= 0)
+            {
+                Die();
+            }
+        }
 
         public bool IsDead()
         {
             return isDead;
         }
-
+        
         public void TakeDamage(float damage)
         {
             healthPoints = Mathf.Max(healthPoints - damage, 0);
-            if (healthPoints == 0)
-            {
-                Die();
-            }
         }
 
         public float getHealthPoints(){
@@ -28,11 +35,12 @@ namespace RPG.Core
 
         private void Die()
         {
-            if (isDead) return;
-
-            isDead = true;
-            GetComponent<Animator>().SetTrigger("die");
-            GetComponent<ActionScheduler>().CancelCurrentAction();
+            if (!isDead){
+                
+                isDead = true;
+                GetComponent<Animator>().SetTrigger("die");
+                GetComponent<ActionScheduler>().CancelCurrentAction();
+            }
         }
     }
 }

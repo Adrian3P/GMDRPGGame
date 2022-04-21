@@ -1,36 +1,53 @@
 using UnityEngine;
 using RPG.Movement;
 using RPG.Core;
+using System;
 
 namespace RPG.Combat
 {
     public class Fighter : MonoBehaviour, IAction
     {
-        [SerializeField] float weaponRange = 2f;
         [SerializeField] float timeBetweenAttacks = 1f;
-        [SerializeField] float weaponDamage = 5f;
-
+        [SerializeField] Transform handTransform = null;
+        [SerializeField] Weapon defaultWeapon = null;
 
         Health target;
         float timeSinceLastAttack = Mathf.Infinity;
+        Weapon currentWeapon = null;
+
+        private void Start()
+        {
+            EquipWeapon(defaultWeapon);
+        }
 
         private void Update()
         {
             timeSinceLastAttack += Time.deltaTime;
 
-            if (target == null) return;
-            if (target.IsDead()) return;
-
-
-            if (!GetIsInRange())
+            if ( target != null && !target.IsDead() && !GetComponent<Health>().IsDead())
             {
-                GetComponent<Mover>().MoveTo(target.transform.position);
+                if (!GetIsInRange())
+                {
+                    GetComponent<Mover>().MoveTo(target.transform.position);
+
+                    if (GetIsInRange())
+                    {
+                        GetComponent<Mover>().Cancel();
+                    }
+                }
+                else if (GetIsInRange())
+                {
+                    AttackBehaviour();
+                }
             }
-            else
-            {
-                GetComponent<Mover>().Cancel();
-                AttackBehaviour();
-            }
+
+        }
+
+        public void EquipWeapon(Weapon weapon)
+        {
+            currentWeapon = weapon;
+            Animator animator = GetComponent<Animator>();
+            weapon.Spawn(handTransform, animator);
         }
 
         private void AttackBehaviour()
@@ -40,10 +57,8 @@ namespace RPG.Combat
 
             if (timeSinceLastAttack > timeBetweenAttacks)
             {
-                //This will trigger the Hit() event
                 TriggerAttack();
                 timeSinceLastAttack = 0;
-
             }
         }
 
@@ -57,16 +72,15 @@ namespace RPG.Combat
         //Animation Event
         void Hit()
         {
-            if (target == null)
+            if (target)
             {
-                return;
+                target.TakeDamage(currentWeapon.GetDamage());
             }
-            target.TakeDamage(weaponDamage);
         }
 
         private bool GetIsInRange()
         {
-            return Vector3.Distance(transform.position, target.transform.position) < weaponRange;
+            return Vector3.Distance(transform.position, target.transform.position) < currentWeapon.GetRange();
         }
 
         public bool CanAttack(GameObject combatTarget)
