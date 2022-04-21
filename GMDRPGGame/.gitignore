@@ -1,3 +1,32 @@
+Skip to content
+Search or jump to…
+Pull requests
+Issues
+Marketplace
+Explore
+ 
+@JacekZubrzycki 
+Adrian3P
+/
+GMDRPGGame
+Public
+Code
+Issues
+Pull requests
+1
+Actions
+Projects
+Wiki
+Security
+Insights
+GMDRPGGame/GMDRPGGame/.gitignore
+
+Dalius Seminauskas Cleaning redundant files
+Latest commit f4ac204 on 14 Mar
+ History
+ 0 contributors
+61 lines (50 sloc)  1 KB
+   
 # This .gitignore file should be placed at the root of your Unity project directory
 #
 # Get latest from https://github.com/github/gitignore/blob/master/Unity.gitignore
@@ -61,3 +90,16 @@ sysinfo.txt
 # Crashlytics generated file
 crashlytics-build.properties
 
+© 2022 GitHub, Inc.
+Terms
+Privacy
+Security
+Status
+Docs
+Contact GitHub
+Pricing
+API
+Training
+Blog
+About
+Loading complete

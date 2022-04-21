@@ -5,6 +5,7 @@ using RPG.Combat;
 using RPG.Core;
 using TMPro;
 using UnityEngine.UI;
+using RPG.Items;
 
 namespace RPG.Control
 {
@@ -25,6 +26,9 @@ namespace RPG.Control
         private GameObject enemyTarget;
 
         private GameObject deathScreenObject;
+
+        private InventorySystem inventory;
+        [SerializeField] private UI_Inventory uiInventory;
 
 
         public void Awake()
@@ -50,6 +54,8 @@ namespace RPG.Control
             }
             targetHUD.SetActive(false);
             deathScreenObject.SetActive(false);
+            inventory = new InventorySystem();
+            uiInventory.SetInventory(inventory);
         }
 
         private void Update()
