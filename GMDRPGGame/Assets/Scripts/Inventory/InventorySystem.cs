@@ -12,10 +12,10 @@ namespace RPG.Items
         {
             inventoryItems = new List<InventoryItem>();
 
-            AddItem(new InventoryItem { itemType = InventoryItem.ItemType.Sword, amount = 1 });
-            AddItem(new InventoryItem { itemType = InventoryItem.ItemType.HealthPotion, amount = 1 });
-            AddItem(new InventoryItem { itemType = InventoryItem.ItemType.Coin, amount = 1 });
-            AddItem(new InventoryItem { itemType = InventoryItem.ItemType.ManaPotion, amount = 1 });
+            //AddItem(new InventoryItem { itemType = InventoryItem.ItemType.Sword, amount = 1 });
+            //AddItem(new InventoryItem { itemType = InventoryItem.ItemType.HealthPotion, amount = 1 });
+            //AddItem(new InventoryItem { itemType = InventoryItem.ItemType.Coin, amount = 1 });
+            //AddItem(new InventoryItem { itemType = InventoryItem.ItemType.ManaPotion, amount = 1 });
         }
 
         public void AddItem(InventoryItem item)

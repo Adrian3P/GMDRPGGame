@@ -30,7 +30,6 @@ namespace RPG.Control
         private InventorySystem inventory;
         [SerializeField] private UI_Inventory uiInventory;
 
-
         public void Awake()
         {
             health = GetComponent<Health>();
@@ -165,6 +164,15 @@ namespace RPG.Control
             return Camera.main.ScreenPointToRay(Input.mousePosition);
         }
 
+        public InventorySystem GetInventorySystem()
+        {
+            return inventory;
+        }
+
+        public UI_Inventory GetUI_Inventory()
+        {
+            return uiInventory;
+        }
     }
 }
 

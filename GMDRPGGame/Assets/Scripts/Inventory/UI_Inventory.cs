@@ -25,20 +25,19 @@ namespace RPG.Items
             RefreshInventoryItems();
         }
 
-        private void RefreshInventoryItems()
+        public void RefreshInventoryItems()
         {
             int x = 0;
-            float y = -88.4f;
-            float itemSlotCellSize = 10f;
+            float y = 0;
             foreach (InventoryItem item in inventory.GetItemList())
             {
                 RectTransform inventoryItemSlotRectTransform = Instantiate(itemSlotTemplate, itemSlotContainer).GetComponent<RectTransform>();
                 inventoryItemSlotRectTransform.gameObject.SetActive(true);
 
-                inventoryItemSlotRectTransform.anchoredPosition = new Vector2(x * itemSlotCellSize, y * itemSlotCellSize);
+                inventoryItemSlotRectTransform.anchoredPosition = new Vector2(x , y);
                 Image image = inventoryItemSlotRectTransform.Find("Item").GetComponent<Image>();
                 image.sprite = item.GetSprite();
-                x += 12;
+                x += 120;
             }
         }
     }
