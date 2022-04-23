@@ -12,14 +12,19 @@ namespace RPG.Combat
         InventorySystem inventory;
         UI_Inventory uiInventory;
 
-        private void Awake()
-        {
-            inventory = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerController>().GetInventorySystem();
-            uiInventory = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerController>().GetUI_Inventory();
-        }
-
         private void OnTriggerEnter(Collider other)
         {
+            if (inventory == null )
+            {
+                inventory = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerController>().GetInventorySystem();
+                
+            }
+
+            if (uiInventory == null)
+            {
+                uiInventory = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerController>().GetUI_Inventory();
+            }
+
             if (other.gameObject.tag == "Player")
             {
                 other.GetComponent<Fighter>().EquipWeapon(weapon);

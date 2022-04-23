@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-namespace RPG.Items 
+namespace RPG.Items
 {
     public class UI_Inventory : MonoBehaviour
     {
@@ -40,7 +40,6 @@ namespace RPG.Items
                 x += 120;
             }
         }
+       
     }
 }
-
-

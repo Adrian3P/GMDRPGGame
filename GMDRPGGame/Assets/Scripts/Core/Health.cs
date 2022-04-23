@@ -42,5 +42,10 @@ namespace RPG.Core
                 GetComponent<ActionScheduler>().CancelCurrentAction();
             }
         }
+
+        public void Heal(float heal)
+        {
+            healthPoints += heal;
+        }
     }
 }

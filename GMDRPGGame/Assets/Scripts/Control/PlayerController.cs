@@ -30,6 +30,7 @@ namespace RPG.Control
         private InventorySystem inventory;
         [SerializeField] private UI_Inventory uiInventory;
 
+
         public void Awake()
         {
             health = GetComponent<Health>();
@@ -38,17 +39,21 @@ namespace RPG.Control
                 mainCamera = GameObject.FindGameObjectWithTag("FollowCamera");
             }
 
-            if (targetHUD == null){
+            if (targetHUD == null)
+            {
                 targetHUD = GameObject.FindGameObjectWithTag("TargetHUD");
             }
-            if (hudTargetHealth == null){
+            if (hudTargetHealth == null)
+            {
                 hudTargetHealth = GameObject.FindGameObjectWithTag("HUDTargetHealth").GetComponent<Slider>();
             }
 
-            if (hudTargetName == null){
+            if (hudTargetName == null)
+            {
                 hudTargetName = GameObject.FindGameObjectWithTag("HUDTargetName").GetComponent<TextMeshProUGUI>();
             }
-            if (deathScreenObject == null){
+            if (deathScreenObject == null)
+            {
                 deathScreenObject = GameObject.FindGameObjectWithTag("DeathScreenObject");
             }
             targetHUD.SetActive(false);
@@ -60,12 +65,13 @@ namespace RPG.Control
         private void Update()
         {
             // While holidng mouse button 2 , you can move your Y axis
-            if(Input.GetMouseButton(1)){
-                mainCamera.transform.eulerAngles += movingCameraSpeed *  new Vector3(0, Input.GetAxis("Mouse X"), 0);
+            if (Input.GetMouseButton(1))
+            {
+                mainCamera.transform.eulerAngles += movingCameraSpeed * new Vector3(0, Input.GetAxis("Mouse X"), 0);
             }
             if (Input.GetAxis("Mouse ScrollWheel") > 0)
             {
-                if (mainCamera.GetComponentInChildren<Camera>().fieldOfView> 1)
+                if (mainCamera.GetComponentInChildren<Camera>().fieldOfView > 1)
                 {
                     mainCamera.GetComponentInChildren<Camera>().fieldOfView--;
                 }
@@ -84,14 +90,15 @@ namespace RPG.Control
             }
 
             updateHUD();
-            if (health.IsDead()){
+            if (health.IsDead())
+            {
                 deathScreenObject.SetActive(true);
                 return;
             }
             if (InteractWithCombat()) return;
             if (InteractWithMovement()) return;
-            
-            
+
+
         }
 
         private bool InteractWithCombat()
@@ -101,7 +108,7 @@ namespace RPG.Control
             {
                 CombatTarget target = hit.transform.GetComponent<CombatTarget>();
 
-                if (target == null) 
+                if (target == null)
                     continue;
 
                 if (!GetComponent<Fighter>().CanAttack(target.gameObject))
@@ -126,7 +133,8 @@ namespace RPG.Control
             return false;
         }
 
-        private void updateHUD(){
+        private void updateHUD()
+        {
             if (bIsAttacking && enemyTarget != null && enemyTarget.GetComponent<Health>() != null)
             {
                 if (enemyTarget.GetComponent<Health>().getHealthPoints() <= 0)
@@ -173,7 +181,11 @@ namespace RPG.Control
         {
             return uiInventory;
         }
+
+        public Health GetHealth()
+        {
+            return health;
+        }
     }
 }
-
 
