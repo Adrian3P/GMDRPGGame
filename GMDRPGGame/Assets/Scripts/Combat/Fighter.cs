@@ -11,6 +11,8 @@ namespace RPG.Combat
         [SerializeField] Transform handTransform = null;
         [SerializeField] Weapon defaultWeapon = null;
 
+        [SerializeField] 
+
         Health target;
         float timeSinceLastAttack = Mathf.Infinity;
         Weapon currentWeapon = null;
@@ -112,5 +114,9 @@ namespace RPG.Combat
             GetComponent<Animator>().SetTrigger("stopAttack");
         }
 
+        public Weapon GetDefaultWeapon()
+        {
+            return defaultWeapon;
+        }
     }
 }

@@ -16,6 +16,9 @@ TagManager:
   - TargetHUD
   - DeathScreenObject
   - ItemAsset
+  - HidenSword
+  - WeaponInHand
+  - WeaponPickUpTemplate
   layers:
   - Default
   - TransparentFX

@@ -18,7 +18,7 @@ public class HUDFunctionality : MonoBehaviour
     private TextMeshProUGUI expText;
     private TextMeshProUGUI manaText;
 
-    private int maxHealth;
+    private float maxHealth;
 
     void Start(){
         if (player == null)
@@ -42,8 +42,8 @@ public class HUDFunctionality : MonoBehaviour
         if (manaText == null)
             manaText = GameObject.FindWithTag("ManaText").GetComponent<TextMeshProUGUI>();
 
-        maxHealth = (int)player.GetComponent<Health>().getHealthPoints();
-        healthSlider.maxValue = player.GetComponent<Health>().getHealthPoints();
+        maxHealth = player.GetComponent<Health>().GetMaxHealthPoints();
+        healthSlider.maxValue = player.GetComponent<Health>().GetMaxHealthPoints();
     }
     // Update is called once per frame
     void Update()
@@ -53,7 +53,7 @@ public class HUDFunctionality : MonoBehaviour
 
     void updateHPTextAndSlider(){
 
-        healthSlider.GetComponent<Slider>().value = player.GetComponent<Health>().getHealthPoints();
-        healthText.text = player.GetComponent<Health>().getHealthPoints().ToString() + "/" + maxHealth;
+        healthSlider.GetComponent<Slider>().value = player.GetComponent<Health>().GetHealthPoints();
+        healthText.text = player.GetComponent<Health>().GetHealthPoints().ToString() + "/" + maxHealth;
     }
 }

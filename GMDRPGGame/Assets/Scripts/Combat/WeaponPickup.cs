@@ -11,6 +11,7 @@ namespace RPG.Combat
         [SerializeField] Weapon weapon = null;
         InventorySystem inventory;
         UI_Inventory uiInventory;
+        GameObject objectToDrop;
 
         private void OnTriggerEnter(Collider other)
         {
@@ -30,9 +31,9 @@ namespace RPG.Combat
                 other.GetComponent<Fighter>().EquipWeapon(weapon);
                 inventory.AddItem(new InventoryItem { itemType = InventoryItem.ItemType.Sword, amount = 1 });
                 uiInventory.RefreshInventoryItems();
-                Destroy(gameObject);
+                GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerController>().SetSwordToDrop(gameObject);
+                //Destroy(gameObject);
             }
         }
-
     }
 }

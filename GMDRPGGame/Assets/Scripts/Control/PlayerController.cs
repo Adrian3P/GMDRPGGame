@@ -29,7 +29,8 @@ namespace RPG.Control
 
         private InventorySystem inventory;
         [SerializeField] private UI_Inventory uiInventory;
-
+        private UseItem useItem;
+        private GameObject drop;
 
         public void Awake()
         {
@@ -60,6 +61,7 @@ namespace RPG.Control
             deathScreenObject.SetActive(false);
             inventory = new InventorySystem();
             uiInventory.SetInventory(inventory);
+            useItem = new UseItem();
         }
 
         private void Update()
@@ -88,6 +90,23 @@ namespace RPG.Control
             {
                 targetHUD.gameObject.SetActive(false);
             }
+            else if (Input.GetKeyDown(KeyCode.Q))
+            {
+                //health.Heal(50);
+                useItem.CheckWhatItemToUse(inventory.GetItemList()[0].itemType);
+            }
+            else if (Input.GetKeyDown(KeyCode.W))
+            {
+                useItem.CheckWhatItemToUse(inventory.GetItemList()[1].itemType);
+            }
+            else if (Input.GetKeyDown(KeyCode.E))
+            {
+                useItem.CheckWhatItemToUse(inventory.GetItemList()[2].itemType);
+            }
+            else if (Input.GetKeyDown(KeyCode.R))
+            {
+                useItem.CheckWhatItemToUse(inventory.GetItemList()[3].itemType);
+            }
 
             updateHUD();
             if (health.IsDead())
@@ -97,7 +116,6 @@ namespace RPG.Control
             }
             if (InteractWithCombat()) return;
             if (InteractWithMovement()) return;
-
 
         }
 
@@ -123,7 +141,7 @@ namespace RPG.Control
                     hudTargetName.text = target.transform.name;
                     if (hit.transform.gameObject.GetComponent<Health>() != null && !bIsAttacking)
                     {
-                        hudTargetHealth.maxValue = target.transform.gameObject.GetComponent<Health>().getHealthPoints();
+                        hudTargetHealth.maxValue = target.transform.gameObject.GetComponent<Health>().GetHealthPoints();
                         bIsAttacking = true;
                     }
                     targetHUD.SetActive(true);
@@ -137,7 +155,7 @@ namespace RPG.Control
         {
             if (bIsAttacking && enemyTarget != null && enemyTarget.GetComponent<Health>() != null)
             {
-                if (enemyTarget.GetComponent<Health>().getHealthPoints() <= 0)
+                if (enemyTarget.GetComponent<Health>().GetHealthPoints() <= 0)
                 {
                     targetHUD.SetActive(false);
                 }
@@ -145,7 +163,7 @@ namespace RPG.Control
                 {
                     bIsAttacking = false;
                 }
-                hudTargetHealth.value = enemyTarget.GetComponent<Health>().getHealthPoints();
+                hudTargetHealth.value = enemyTarget.GetComponent<Health>().GetHealthPoints();
                 hudTargetHealth.gameObject.SetActive(true);
             }
         }
@@ -185,6 +203,16 @@ namespace RPG.Control
         public Health GetHealth()
         {
             return health;
+        }
+
+        public void SetSwordToDrop(GameObject swordToDrop)
+        {
+            useItem.SetSwordToDrop(swordToDrop);
+        }
+
+        public GameObject GetSwordToDrop()
+        {
+            return drop;
         }
     }
 }
