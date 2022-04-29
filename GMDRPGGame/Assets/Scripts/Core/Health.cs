@@ -1,3 +1,4 @@
+using System.Threading.Tasks;
 using UnityEngine;
 
 namespace RPG.Core
@@ -8,8 +9,11 @@ namespace RPG.Core
 
         [SerializeField] bool isDead;
 
+        private float maxHealth { get; set; }
+
         public void Start(){
             isDead = false;
+            maxHealth = healthPoints;
         }
         private void Update()
         {
@@ -29,8 +33,13 @@ namespace RPG.Core
             healthPoints = Mathf.Max(healthPoints - damage, 0);
         }
 
-        public float getHealthPoints(){
+        public float GetHealthPoints(){
             return healthPoints;
+        }
+
+        public float GetMaxHealthPoints()
+        {
+            return maxHealth;
         }
 
         private void Die()
@@ -41,6 +50,23 @@ namespace RPG.Core
                 GetComponent<Animator>().SetTrigger("die");
                 GetComponent<ActionScheduler>().CancelCurrentAction();
             }
+        }
+
+        public async void Heal(float heal)
+        {
+            //check if after healing healthPoints will not be greater than maxHealth
+            if ((healthPoints + heal) > maxHealth)
+            {
+                heal = maxHealth - healthPoints;
+            }
+            //heal over time (5 hp per sec)
+            for (float x = 0; x < heal; x += 5)
+            {
+                healthPoints += 5;
+                await Task.Delay(1000);
+            }
+            //insta heal
+            //healthPoints = (healthPoints + heal) >= maxHealth ? maxHealth : healthPoints + heal;
         }
     }
 }
