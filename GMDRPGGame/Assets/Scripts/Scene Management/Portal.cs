@@ -18,8 +18,6 @@ namespace RPG.SceneManagement
         [SerializeField] Transform spawnPoint;
         [SerializeField] DestinationIdentifier destination;
 
-
-
         private void OnTriggerEnter(Collider other)
         {
             if (other.tag == "Player")
@@ -47,10 +45,14 @@ namespace RPG.SceneManagement
         {
             foreach (Portal portal in FindObjectsOfType<Portal>())
             {
-                if (portal == this) continue;
-                if (portal.destination != destination) continue;
-
-                return portal;
+                if (portal == this)
+                {
+                    continue;
+                }
+                else if (portal.destination != destination)
+                {
+                    return portal;
+                }
             }
 
             return null;
@@ -61,7 +63,6 @@ namespace RPG.SceneManagement
             GameObject player = GameObject.FindWithTag("Player");
             player.transform.position = otherPortal.spawnPoint.position;
             player.transform.rotation = otherPortal.spawnPoint.rotation;
-
         }
     }
 }
