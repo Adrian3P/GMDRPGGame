@@ -23,11 +23,22 @@ namespace RPG.Items
             inventoryItems.Add(item);
         }
 
+        public void DeleteItem(int index)
+        {
+            if (inventoryItems[index].amount == 0)
+            {
+                inventoryItems.RemoveAt(index);
+            }
+            else
+            {
+                inventoryItems[index].amount -= 1;
+            }
+        }
         public List<InventoryItem> GetItemList()
         {
             return inventoryItems;
         }
-
+		
         public void clearItemSlotTemplateObjects()
         {
             GameObject[] objects = GameObject.FindGameObjectsWithTag("itemSlotTemplate");

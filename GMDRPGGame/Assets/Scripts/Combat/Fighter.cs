@@ -77,6 +77,8 @@ namespace RPG.Combat
             if (target)
             {
                 target.TakeDamage(currentWeapon.GetDamage());
+                SoundEfects.PlaySound("swordAttack");
+                SoundEfects.PlaySound("enemyHit");
             }
         }
 
