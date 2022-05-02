@@ -4,10 +4,11 @@ using UnityEngine;
 using RPG.Control;
 using RPG.Items;
 
-public class CoinPickUp : MonoBehaviour
+public class ItemPickupBase : MonoBehaviour
 {
-    InventorySystem inventory;
-    UI_Inventory uiInventory;
+    public InventorySystem inventory;
+    public UI_Inventory uiInventory;
+    private bool bItemCollected = false;
 
     private void OnTriggerEnter(Collider other)
     {
@@ -22,11 +23,15 @@ public class CoinPickUp : MonoBehaviour
             uiInventory = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerController>().GetUI_Inventory();
         }
 
-        if (other.gameObject.tag == "Player")
+        if (!bItemCollected && other.gameObject.tag == "Player")
         {
-            inventory.AddItem(new InventoryItem { itemType = InventoryItem.ItemType.Coin, amount = 1 });
-            uiInventory.RefreshInventoryItems();
-            Destroy(gameObject);
+            addItemToInventory();
+            bItemCollected = true;
         }
+    }
+
+    public virtual void addItemToInventory()
+    {
+        Debug.LogError("addItemToInventory method is not overwritten!");        
     }
 }

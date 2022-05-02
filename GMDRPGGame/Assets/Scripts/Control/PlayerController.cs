@@ -61,7 +61,7 @@ namespace RPG.Control
             deathScreenObject.SetActive(false);
             inventory = new InventorySystem();
             uiInventory.SetInventory(inventory);
-            useItem = new UseItem();
+            useItem = gameObject.AddComponent(typeof(UseItem)) as UseItem;
         }
 
         private void Update()

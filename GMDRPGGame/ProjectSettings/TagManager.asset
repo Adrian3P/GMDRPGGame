@@ -19,6 +19,7 @@ TagManager:
   - HidenSword
   - WeaponInHand
   - WeaponPickUpTemplate
+  - itemSlotTemplate
   layers:
   - Default
   - TransparentFX

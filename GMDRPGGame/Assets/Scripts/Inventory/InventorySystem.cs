@@ -4,7 +4,7 @@ using UnityEngine;
 
 namespace RPG.Items
 {
-    public class InventorySystem
+    public class InventorySystem : MonoBehaviour
     {
         private List<InventoryItem> inventoryItems;
 
@@ -26,6 +26,16 @@ namespace RPG.Items
         public List<InventoryItem> GetItemList()
         {
             return inventoryItems;
+        }
+
+        public void clearItemSlotTemplateObjects()
+        {
+            GameObject[] objects = GameObject.FindGameObjectsWithTag("itemSlotTemplate");
+
+            foreach (GameObject item in objects)
+            {
+                Destroy(item);
+            }
         }
     }
 }
