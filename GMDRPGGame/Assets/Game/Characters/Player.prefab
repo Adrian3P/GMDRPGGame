@@ -61,11 +61,6 @@ PrefabInstance:
       objectReference: {fileID: 2100000, guid: 3f6fc0cf5e5d31c458bc74ede87cb8ae, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 679ff741e12a7e740819ede24a7000b7, type: 3}
---- !u!4 &645349059 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 461188, guid: 679ff741e12a7e740819ede24a7000b7, type: 3}
-  m_PrefabInstance: {fileID: 644888391}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &6873559483287150218
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -133,6 +128,10 @@ PrefabInstance:
       propertyPath: m_TagString
       value: Player
       objectReference: {fileID: 0}
+    - target: {fileID: 5639871477533934446, guid: 67d597c0b9b3d0340afa4d3786cf7b7f, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 1735262365574254938, guid: 67d597c0b9b3d0340afa4d3786cf7b7f, type: 3}
     - {fileID: -4695036518480924381, guid: 67d597c0b9b3d0340afa4d3786cf7b7f, type: 3}
@@ -145,6 +144,20 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 5635136738238339991, guid: 67d597c0b9b3d0340afa4d3786cf7b7f, type: 3}
   m_PrefabInstance: {fileID: 6873559483287150218}
   m_PrefabAsset: {fileID: 0}
+--- !u!136 &9145398515048805153
+CapsuleCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1249694949535515933}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  m_Radius: 0.5
+  m_Height: 1
+  m_Direction: 1
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!114 &-6922270867385861885
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -158,9 +171,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   timeBetweenAttacks: 1.25
-
-  handTransform: {fileID: 645349059}
-  defaultWeapon: {fileID: 11400000, guid: 087835bd82a90484192c0ecd82dc40a2, type: 2}
+  handTransform: {fileID: 0}
+  defaultWeapon: {fileID: 0}
+  target: {fileID: 0}
 --- !u!114 &3939783836221507653
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -174,9 +187,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   healthPoints: 100
-
-  weaponDamage: 5
-
+  isDead: 0
 --- !u!114 &5149630894850527184
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -201,24 +212,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cd3363520d26d414ca88504ba477bb87, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  
---- !u!136 &9145398515048805153
-CapsuleCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1249694949535515933}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  m_Radius: 0.5
-  m_Height: 1
-  m_Direction: 1
-  m_Center: {x: 0, y: 0, z: 0}
-
   movingCameraSpeed: 2
-
+  uiInventory: {fileID: 0}
 --- !u!4 &2139370697268466797 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4815293301853260519, guid: 67d597c0b9b3d0340afa4d3786cf7b7f, type: 3}
