@@ -11,11 +11,6 @@ namespace RPG.Items
         public InventorySystem()
         {
             inventoryItems = new List<InventoryItem>();
-
-            //AddItem(new InventoryItem { itemType = InventoryItem.ItemType.Sword, amount = 1 });
-            //AddItem(new InventoryItem { itemType = InventoryItem.ItemType.HealthPotion, amount = 1 });
-            //AddItem(new InventoryItem { itemType = InventoryItem.ItemType.Coin, amount = 1 });
-            //AddItem(new InventoryItem { itemType = InventoryItem.ItemType.ManaPotion, amount = 1 });
         }
 
         public void AddItem(InventoryItem item)
@@ -25,13 +20,11 @@ namespace RPG.Items
 
         public void DeleteItem(int index)
         {
-            if (inventoryItems[index].amount == 0)
+            inventoryItems[index].amount -= 1;
+
+            if (inventoryItems[index].amount <= 0)
             {
                 inventoryItems.RemoveAt(index);
-            }
-            else
-            {
-                inventoryItems[index].amount -= 1;
             }
         }
         public List<InventoryItem> GetItemList()

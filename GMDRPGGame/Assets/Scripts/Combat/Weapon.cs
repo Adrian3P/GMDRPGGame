@@ -16,13 +16,15 @@ namespace RPG.Combat
             if (equippedPrefab != null)
             {
                 Instantiate(equippedPrefab, handTransform);
-
             }
             if (animatorOverride != null)
             {
                 animator.runtimeAnimatorController = animatorOverride;
-
             }
+        }
+
+        public GameObject GetequippedPrefab(){
+            return equippedPrefab;
         }
 
         public float GetDamage()

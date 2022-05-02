@@ -43,7 +43,7 @@ public class HUDFunctionality : MonoBehaviour
             manaText = GameObject.FindWithTag("ManaText").GetComponent<TextMeshProUGUI>();
 
         maxHealth = player.GetComponent<Health>().GetMaxHealthPoints();
-        healthSlider.maxValue = player.GetComponent<Health>().GetMaxHealthPoints();
+        healthSlider.maxValue = maxHealth;
     }
     // Update is called once per frame
     void Update()

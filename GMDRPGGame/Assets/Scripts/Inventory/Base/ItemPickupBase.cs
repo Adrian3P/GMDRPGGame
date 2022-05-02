@@ -6,8 +6,8 @@ using RPG.Items;
 
 public class ItemPickupBase : MonoBehaviour
 {
-    public InventorySystem inventory;
-    public UI_Inventory uiInventory;
+    [HideInInspector] public InventorySystem inventory;
+    [HideInInspector] public UI_Inventory uiInventory;
     private bool bItemCollected = false;
 
     private void OnTriggerEnter(Collider other)

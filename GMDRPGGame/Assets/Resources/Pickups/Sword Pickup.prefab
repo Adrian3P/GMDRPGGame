@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 559781616502204205}
   m_Layer: 0
   m_Name: Sword Pickup
-  m_TagString: Untagged
+  m_TagString: WeaponPickup
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -46,8 +46,8 @@ SphereCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Radius: 1.68
-  m_Center: {x: 1, y: -2.6, z: 0}
+  m_Radius: 0.6
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!114 &6095497666301750176
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -60,6 +60,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 70a878067f3fcdb47a6eb85063b34e70, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  inventory: {fileID: 0}
+  uiInventory: {fileID: 0}
   weapon: {fileID: 11400000, guid: 6eaba085bb0440f4bb8500e57d1b9ab1, type: 2}
 --- !u!54 &559781616502204205
 Rigidbody:
@@ -94,43 +96,43 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 489998, guid: 13af847dfa6dbe844ba4b7c902f98f67, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 1.11
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 489998, guid: 13af847dfa6dbe844ba4b7c902f98f67, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -2.58
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 489998, guid: 13af847dfa6dbe844ba4b7c902f98f67, type: 3}
       propertyPath: m_LocalPosition.z
-      value: -0.05
+      value: 0.6
       objectReference: {fileID: 0}
     - target: {fileID: 489998, guid: 13af847dfa6dbe844ba4b7c902f98f67, type: 3}
       propertyPath: m_LocalRotation.w
-      value: -0.07271162
+      value: 0.7071068
       objectReference: {fileID: 0}
     - target: {fileID: 489998, guid: 13af847dfa6dbe844ba4b7c902f98f67, type: 3}
       propertyPath: m_LocalRotation.x
-      value: 0.75389665
+      value: -0.7071068
       objectReference: {fileID: 0}
     - target: {fileID: 489998, guid: 13af847dfa6dbe844ba4b7c902f98f67, type: 3}
       propertyPath: m_LocalRotation.y
-      value: -0.65206134
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 489998, guid: 13af847dfa6dbe844ba4b7c902f98f67, type: 3}
       propertyPath: m_LocalRotation.z
-      value: 0.03419017
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 489998, guid: 13af847dfa6dbe844ba4b7c902f98f67, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
-      value: 183.729
+      value: -90
       objectReference: {fileID: 0}
     - target: {fileID: 489998, guid: 13af847dfa6dbe844ba4b7c902f98f67, type: 3}
       propertyPath: m_LocalEulerAnglesHint.y
-      value: -8.434998
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 489998, guid: 13af847dfa6dbe844ba4b7c902f98f67, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
-      value: 81.99
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 13af847dfa6dbe844ba4b7c902f98f67, type: 3}

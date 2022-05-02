@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AI;
 using RPG.Core;
+using RPG.Sounds;
 
 
 namespace RPG.Movement
@@ -12,21 +13,21 @@ namespace RPG.Movement
         [SerializeField] Transform target;
         NavMeshAgent navMeshAgent;
         Health health;
+        GameObject audioGameObject;
 
         private void Awake()
         {
             navMeshAgent = GetComponent<NavMeshAgent>();
             health = GetComponent<Health>();
+            audioGameObject = GameObject.FindGameObjectWithTag("audioGameObject");
         }
 
 
         public void Update()
         {
-            // navMeshAgent.enabled = !health.IsDead();
             navMeshAgent.enabled = !health.IsDead();
 
             UpdateAnimator();
-
         }
         public void StartMoveAction(Vector3 destination)
         {

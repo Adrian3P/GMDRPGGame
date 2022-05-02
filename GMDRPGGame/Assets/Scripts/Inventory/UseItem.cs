@@ -9,7 +9,6 @@ using static RPG.Items.InventoryItem;
 public class UseItem : MonoBehaviour
 {
     private Health health;
-    private PlayerController player;
     private GameObject drop;
 
     public void CheckWhatItemToUse(ItemType itemType)
@@ -40,15 +39,22 @@ public class UseItem : MonoBehaviour
     }
 
     private void UseSword()
-    {
-            player = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerController>();
-            Weapon weapon = player.GetComponent<Fighter>().GetDefaultWeapon();
-            player.GetComponent<Fighter>().EquipWeapon(weapon);
-            var a = GameObject.FindGameObjectWithTag("WeaponInHand");
-            Transform transform = player.GetComponent<Transform>();
-            
-            Instantiate(drop, transform.forward * 1 ,Quaternion.identity);
-            Destroy(a);
+    {   
+        GameObject player = GameObject.FindGameObjectWithTag("Player");
+        GameObject drop = GameObject.FindGameObjectWithTag("WeaponInHand");
+        Weapon weapon = player.GetComponent<Fighter>().GetDefaultWeapon();
+        player.GetComponent<Fighter>().EquipWeapon(weapon);
+
+
+        Vector3 playerPos = player.transform.position;
+        Vector3 playerDirection = player.transform.forward;
+        Quaternion playerRotation = player.transform.rotation;
+        float spawnDistance = 1.5f;
+        
+        Vector3 spawnPos = playerPos + playerDirection * spawnDistance;
+
+        GameObject.Instantiate(Resources.Load ("Pickups/Sword Pickup") as GameObject, spawnPos, playerRotation);
+        Destroy(drop);
     }
 
     public void SetSwordToDrop(GameObject swordToDrop)

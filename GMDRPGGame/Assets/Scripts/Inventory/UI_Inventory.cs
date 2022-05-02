@@ -9,7 +9,6 @@ namespace RPG.Items
     {
         private InventorySystem inventory;
         private Transform itemSlotContainer;
-        //private Transform itemSlotTemplate;
 
         [SerializeField]
         private GameObject itemSlotTemplate;
