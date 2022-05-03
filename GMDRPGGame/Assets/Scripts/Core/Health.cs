@@ -10,13 +10,13 @@ namespace RPG.Core
 
         [SerializeField] bool isDead;
 
-        GameObject audioGameObject;
+        SoundEffects soundEffects;
         private float maxHealth { get; set; }
 
-        public void Start(){
+        public void Awake(){
             isDead = false;
             maxHealth = healthPoints;
-            audioGameObject = GameObject.FindGameObjectWithTag("audioGameObject");
+            soundEffects = GetComponent<SoundEffects>();
         }
         private void Update()
         {
@@ -34,7 +34,10 @@ namespace RPG.Core
         public void TakeDamage(float damage)
         {
             healthPoints = Mathf.Max(healthPoints - damage, 0);
-            audioGameObject.GetComponent<SoundEffects>().PlaySound("enemyHit");
+            if (soundEffects != null){
+                soundEffects.PlaySound("enemyHit");
+            }
+            
         }
 
         public float GetHealthPoints(){
@@ -53,7 +56,7 @@ namespace RPG.Core
                 isDead = true;
                 GetComponent<Animator>().SetTrigger("die");
                 GetComponent<ActionScheduler>().CancelCurrentAction();
-                audioGameObject.GetComponent<SoundEffects>().PlaySound("diedSound");
+                soundEffects.PlaySound("diedSound");
             }
         }
 

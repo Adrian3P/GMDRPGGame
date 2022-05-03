@@ -59,7 +59,10 @@ namespace RPG.Control
             }
             targetHUD.SetActive(false);
             deathScreenObject.SetActive(false);
-            inventory = new InventorySystem();
+            if (inventory == null){
+                inventory = gameObject.AddComponent<InventorySystem>();
+            }
+            
             uiInventory.SetInventory(inventory);
             useItem = gameObject.AddComponent(typeof(UseItem)) as UseItem;
         }

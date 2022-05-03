@@ -11,6 +11,8 @@ namespace RPG.Sounds
         [SerializeField] private List<AudioClip> enemyHitSound;
         [SerializeField] private List<AudioClip> swordAttack;
         [SerializeField] private List<AudioClip> diedSound;
+        [SerializeField] private List<AudioClip> footStepSnd;
+        [SerializeField] private List<AudioClip> punchSnd;
 
         private AudioSource audioSrc;
         void Start()
@@ -33,6 +35,12 @@ namespace RPG.Sounds
                     break;
                 case "diedSound":
                     audioSrc.PlayOneShot(diedSound[Random.Range(0, diedSound.Count)], 0.5f);
+                    break;
+                case "footStepSnd":
+                    audioSrc.PlayOneShot(footStepSnd[Random.Range(0, footStepSnd.Count)], 0.5f);
+                    break;
+                case "punchSnd":
+                    audioSrc.PlayOneShot(punchSnd[Random.Range(0, punchSnd.Count)], 0.5f);
                     break;
             }
         }

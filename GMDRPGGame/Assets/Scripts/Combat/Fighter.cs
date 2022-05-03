@@ -15,12 +15,13 @@ namespace RPG.Combat
         Health target;
         float timeSinceLastAttack = Mathf.Infinity;
         Weapon currentWeapon = null;
-        GameObject audioGameObject;
+
+        SoundEffects soundEffects;
 
         private void Start()
         {
-            audioGameObject = GameObject.FindGameObjectWithTag("audioGameObject");
             EquipWeapon(defaultWeapon);
+            soundEffects = GetComponent<SoundEffects>();
         }
 
         private void Update()
@@ -48,7 +49,18 @@ namespace RPG.Combat
 
         public void EquipWeapon(Weapon weapon)
         {
-            currentWeapon = weapon;
+            if (weapon != null)
+            {
+                currentWeapon = weapon;
+                if (currentWeapon != defaultWeapon)
+                {
+                    currentWeapon.name = "Sword";
+                }
+                else{
+                    currentWeapon.name = "Unarmed";
+                }
+            }
+            
             Animator animator = GetComponent<Animator>();
             weapon.Spawn(handTransform, animator);
         }
@@ -78,7 +90,14 @@ namespace RPG.Combat
             if (target)
             {
                 target.TakeDamage(currentWeapon.GetDamage());
-                audioGameObject.GetComponent<SoundEffects>().PlaySound("swordAttack");
+                if (currentWeapon.name == "Unarmed")
+                {
+                    soundEffects.PlaySound("punchSnd");
+                }
+                else{
+                    soundEffects.PlaySound("swordAttack");
+                }
+                
             }
             
         }

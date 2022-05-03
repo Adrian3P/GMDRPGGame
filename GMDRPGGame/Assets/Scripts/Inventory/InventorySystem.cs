@@ -8,8 +8,7 @@ namespace RPG.Items
     {
         private List<InventoryItem> inventoryItems;
 
-        public InventorySystem()
-        {
+        void Awake(){
             inventoryItems = new List<InventoryItem>();
         }
 

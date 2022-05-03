@@ -47,21 +47,23 @@ namespace RPG.SceneManagement
         {
             foreach (Portal portal in FindObjectsOfType<Portal>())
             {
-                if (portal == this) continue;
-                if (portal.destination != destination) continue;
-
-                return portal;
+                if (portal == this)
+                {
+                    continue;
+                }
+                else if (portal.destination != destination)
+                {
+                    return portal;
+                }
             }
-
             return null;
         }
 
         private void UpdatePlayer(Portal otherPortal)
         {
-            GameObject player = GameObject.FindWithTag("Player");
+            GameObject player = GameObject.FindGameObjectWithTag("Player");
             player.transform.position = otherPortal.spawnPoint.position;
             player.transform.rotation = otherPortal.spawnPoint.rotation;
-
         }
     }
 }
