@@ -1,0 +1,8 @@
+<?xml version="1.0"?>
+<Settings xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <screenWidth>1366</screenWidth>
+  <screenHeight>768</screenHeight>
+  <screenMode>0</screenMode>
+  <qualityLevel>0</qualityLevel>
+  <volumeLevel>0</volumeLevel>
+</Settings>

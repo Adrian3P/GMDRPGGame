@@ -1,6 +1,7 @@
 using UnityEngine;
 using RPG.Movement;
 using RPG.Core;
+using RPG.Sounds;
 using System;
 
 namespace RPG.Combat
@@ -11,15 +12,16 @@ namespace RPG.Combat
         [SerializeField] Transform handTransform = null;
         [SerializeField] Weapon defaultWeapon = null;
 
-        [SerializeField] 
-
         Health target;
         float timeSinceLastAttack = Mathf.Infinity;
         Weapon currentWeapon = null;
 
+        SoundEffects soundEffects;
+
         private void Start()
         {
             EquipWeapon(defaultWeapon);
+            soundEffects = GetComponent<SoundEffects>();
         }
 
         private void Update()
@@ -47,7 +49,18 @@ namespace RPG.Combat
 
         public void EquipWeapon(Weapon weapon)
         {
-            currentWeapon = weapon;
+            if (weapon != null)
+            {
+                currentWeapon = weapon;
+                if (currentWeapon != defaultWeapon)
+                {
+                    currentWeapon.name = "Sword";
+                }
+                else{
+                    currentWeapon.name = "Unarmed";
+                }
+            }
+            
             Animator animator = GetComponent<Animator>();
             weapon.Spawn(handTransform, animator);
         }
@@ -77,7 +90,16 @@ namespace RPG.Combat
             if (target)
             {
                 target.TakeDamage(currentWeapon.GetDamage());
+                if (currentWeapon.name == "Unarmed")
+                {
+                    soundEffects.PlaySound("punchSnd");
+                }
+                else{
+                    soundEffects.PlaySound("swordAttack");
+                }
+                
             }
+            
         }
 
         private bool GetIsInRange()
@@ -117,6 +139,10 @@ namespace RPG.Combat
         public Weapon GetDefaultWeapon()
         {
             return defaultWeapon;
+        }
+
+        public GameObject GetCurrentWeapon(){
+            return currentWeapon.GetequippedPrefab();
         }
     }
 }

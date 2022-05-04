@@ -4,18 +4,12 @@ using UnityEngine;
 
 namespace RPG.Items
 {
-    public class InventorySystem
+    public class InventorySystem : MonoBehaviour
     {
         private List<InventoryItem> inventoryItems;
 
-        public InventorySystem()
-        {
+        void Awake(){
             inventoryItems = new List<InventoryItem>();
-
-            //AddItem(new InventoryItem { itemType = InventoryItem.ItemType.Sword, amount = 1 });
-            //AddItem(new InventoryItem { itemType = InventoryItem.ItemType.HealthPotion, amount = 1 });
-            //AddItem(new InventoryItem { itemType = InventoryItem.ItemType.Coin, amount = 1 });
-            //AddItem(new InventoryItem { itemType = InventoryItem.ItemType.ManaPotion, amount = 1 });
         }
 
         public void AddItem(InventoryItem item)
@@ -23,9 +17,28 @@ namespace RPG.Items
             inventoryItems.Add(item);
         }
 
+        public void DeleteItem(int index)
+        {
+            inventoryItems[index].amount -= 1;
+
+            if (inventoryItems[index].amount <= 0)
+            {
+                inventoryItems.RemoveAt(index);
+            }
+        }
         public List<InventoryItem> GetItemList()
         {
             return inventoryItems;
+        }
+		
+        public void clearItemSlotTemplateObjects()
+        {
+            GameObject[] objects = GameObject.FindGameObjectsWithTag("itemSlotTemplate");
+
+            foreach (GameObject item in objects)
+            {
+                Destroy(item);
+            }
         }
     }
 }

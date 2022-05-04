@@ -19,6 +19,10 @@ TagManager:
   - HidenSword
   - WeaponInHand
   - WeaponPickUpTemplate
+  - itemSlotTemplate
+  - audioGameObject
+  - WeaponPickup
+  - AmbientMusicObject
   layers:
   - Default
   - TransparentFX

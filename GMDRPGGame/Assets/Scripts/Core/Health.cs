@@ -1,5 +1,6 @@
 using System.Threading.Tasks;
 using UnityEngine;
+using RPG.Sounds;
 
 namespace RPG.Core
 {
@@ -9,11 +10,13 @@ namespace RPG.Core
 
         [SerializeField] bool isDead;
 
+        SoundEffects soundEffects;
         private float maxHealth { get; set; }
 
-        public void Start(){
+        public void Awake(){
             isDead = false;
             maxHealth = healthPoints;
+            soundEffects = GetComponent<SoundEffects>();
         }
         private void Update()
         {
@@ -31,6 +34,10 @@ namespace RPG.Core
         public void TakeDamage(float damage)
         {
             healthPoints = Mathf.Max(healthPoints - damage, 0);
+            if (soundEffects != null){
+                soundEffects.PlaySound("enemyHit");
+            }
+            
         }
 
         public float GetHealthPoints(){
@@ -49,6 +56,7 @@ namespace RPG.Core
                 isDead = true;
                 GetComponent<Animator>().SetTrigger("die");
                 GetComponent<ActionScheduler>().CancelCurrentAction();
+                soundEffects.PlaySound("diedSound");
             }
         }
 

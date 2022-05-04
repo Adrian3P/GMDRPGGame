@@ -9,19 +9,19 @@ namespace RPG.Items
     {
         private InventorySystem inventory;
         private Transform itemSlotContainer;
-        private Transform itemSlotTemplate;
+
+        [SerializeField]
+        private GameObject itemSlotTemplate;
 
         private void Awake()
         {
             itemSlotContainer = transform.Find("itemSlotContainer");
-            itemSlotTemplate = itemSlotContainer.Find("itemSlotTemplate");
         }
 
         public void SetInventory(InventorySystem inventory)
         {
             this.inventory = inventory;
             itemSlotContainer = transform.Find("itemSlotContainer");
-            itemSlotTemplate = itemSlotContainer.Find("itemSlotTemplate");
             RefreshInventoryItems();
         }
 
@@ -29,9 +29,10 @@ namespace RPG.Items
         {
             int x = 0;
             float y = 0;
+            inventory.clearItemSlotTemplateObjects();
             foreach (InventoryItem item in inventory.GetItemList())
             {
-                RectTransform inventoryItemSlotRectTransform = Instantiate(itemSlotTemplate, itemSlotContainer).GetComponent<RectTransform>();
+                RectTransform inventoryItemSlotRectTransform = Instantiate(itemSlotTemplate.gameObject.transform, itemSlotContainer).GetComponent<RectTransform>();
                 inventoryItemSlotRectTransform.gameObject.SetActive(true);
 
                 inventoryItemSlotRectTransform.anchoredPosition = new Vector2(x , y);

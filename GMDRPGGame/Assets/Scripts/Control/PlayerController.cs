@@ -59,9 +59,12 @@ namespace RPG.Control
             }
             targetHUD.SetActive(false);
             deathScreenObject.SetActive(false);
-            inventory = new InventorySystem();
+            if (inventory == null){
+                inventory = gameObject.AddComponent<InventorySystem>();
+            }
+            
             uiInventory.SetInventory(inventory);
-            useItem = new UseItem();
+            useItem = gameObject.AddComponent(typeof(UseItem)) as UseItem;
         }
 
         private void Update()
@@ -92,20 +95,40 @@ namespace RPG.Control
             }
             else if (Input.GetKeyDown(KeyCode.Q))
             {
-                //health.Heal(50);
-                useItem.CheckWhatItemToUse(inventory.GetItemList()[0].itemType);
+                if (inventory.GetItemList().Count > 0)
+                {
+                    useItem.CheckWhatItemToUse(inventory.GetItemList()[0].itemType);
+                    inventory.DeleteItem(0);
+                    uiInventory.RefreshInventoryItems();
+                }
+
             }
             else if (Input.GetKeyDown(KeyCode.W))
             {
-                useItem.CheckWhatItemToUse(inventory.GetItemList()[1].itemType);
+                if (inventory.GetItemList().Count > 1)
+                {
+                    useItem.CheckWhatItemToUse(inventory.GetItemList()[1].itemType);
+                    inventory.DeleteItem(1);
+                    uiInventory.RefreshInventoryItems();
+                }
             }
             else if (Input.GetKeyDown(KeyCode.E))
             {
-                useItem.CheckWhatItemToUse(inventory.GetItemList()[2].itemType);
+                if (inventory.GetItemList().Count > 2)
+                {
+                    useItem.CheckWhatItemToUse(inventory.GetItemList()[2].itemType);
+                    inventory.DeleteItem(2);
+                    uiInventory.RefreshInventoryItems();
+                }
             }
             else if (Input.GetKeyDown(KeyCode.R))
             {
-                useItem.CheckWhatItemToUse(inventory.GetItemList()[3].itemType);
+                if (inventory.GetItemList().Count > 3)
+                {
+                    useItem.CheckWhatItemToUse(inventory.GetItemList()[3].itemType);
+                    inventory.DeleteItem(3);
+                    uiInventory.RefreshInventoryItems();
+                }
             }
 
             updateHUD();
