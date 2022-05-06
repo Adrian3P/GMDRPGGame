@@ -19,3 +19,5 @@ Blades & Bludgeoning Free Sample Pack - https://assetstore.unity.com/packages/au
 RPG Medieval Themes - https://assetstore.unity.com/packages/audio/music/orchestral/rpg-medieval-themes-196607
 
 SwordSoundPack - https://assetstore.unity.com/packages/audio/sound-fx/weapons/swordsoundpack-177824
+
+Options menu - https://assetstore.unity.com/packages/tools/gui/basic-graphic-settings-menu-192738
