@@ -21,3 +21,7 @@ RPG Medieval Themes - https://assetstore.unity.com/packages/audio/music/orchestr
 SwordSoundPack - https://assetstore.unity.com/packages/audio/sound-fx/weapons/swordsoundpack-177824
 
 Options menu - https://assetstore.unity.com/packages/tools/gui/basic-graphic-settings-menu-192738
+
+<b>Tutorials</b>
+ Main menu - https://www.youtube.com/watch?v=jh3zD-wGBnw , https://www.youtube.com/watch?v=L7BVZQtcdJM , https://www.youtube.com/watch?v=KgOFu1TZypw
+ Dont destroy on load - https://www.youtube.com/watch?v=HXaFLm3gQws
