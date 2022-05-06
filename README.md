@@ -1,4 +1,4 @@
-#Assets#
+#Assets
 Footsteps - Essentials - https://assetstore.unity.com/packages/audio/sound-fx/foley/footsteps-essentials-189879
 Animations by Explosive - (Student package)
 Modular RPG Weapons - https://assetstore.unity.com/packages/3d/props/weapons/modular-rpg-weapons-209010
