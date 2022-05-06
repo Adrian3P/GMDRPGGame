@@ -27,3 +27,5 @@ Options menu - https://assetstore.unity.com/packages/tools/gui/basic-graphic-set
  Main menu - https://www.youtube.com/watch?v=jh3zD-wGBnw , https://www.youtube.com/watch?v=L7BVZQtcdJM , https://www.youtube.com/watch?v=KgOFu1TZypw
 
  Dont destroy on load - https://www.youtube.com/watch?v=HXaFLm3gQws
+ 
+ Inventory - https://www.youtube.com/watch?v=2WnAOV7nHW0&t=324s
