@@ -31,7 +31,7 @@ Options menu - https://assetstore.unity.com/packages/tools/gui/basic-graphic-set
  Inventory - https://www.youtube.com/watch?v=2WnAOV7nHW0&t=324s
 
 
-Adrian's taks:
+Adrian's tasks:
 
 Combat, movement inspiration:
 https://www.youtube.com/playlist?list=PLPV2KyIb3jR4KLGCCAciWQ5qHudKtYeP7
