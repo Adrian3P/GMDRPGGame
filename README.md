@@ -29,3 +29,20 @@ Options menu - https://assetstore.unity.com/packages/tools/gui/basic-graphic-set
  Dont destroy on load - https://www.youtube.com/watch?v=HXaFLm3gQws
  
  Inventory - https://www.youtube.com/watch?v=2WnAOV7nHW0&t=324s
+
+
+Adrian's taks:
+
+Combat, movement inspiration:
+https://www.youtube.com/playlist?list=PLPV2KyIb3jR4KLGCCAciWQ5qHudKtYeP7
+
+Combat, movement, animation:
+https://www.youtube.com/playlist?list=PLW3-6V9UKVh32I1W4Zw4hQbyhhD1mUvjx
+
+Patrol behaviour:
+https://www.youtube.com/watch?v=8eWbSN2T8TE
+
+For portal:
+https://www.youtube.com/watch?v=cuQao3hEKfs
+
+Besides these youtube tutorials, I also used some videos from Unity learn which I don't remember if I used something from them or not and I also used some examples I found online when I was goggling for answers but I did not save the link for each site.
