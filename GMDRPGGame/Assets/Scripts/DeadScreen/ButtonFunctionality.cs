@@ -15,18 +15,19 @@ public class ButtonFunctionality : MonoBehaviour
 
     public void onRestartButton(){
 
+        if (SceneManager.GetActiveScene().buildIndex > 1 )
+        {
+            SceneManager.LoadScene(1);
+        }
+        else{
+            SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+        }
+
         foreach (var item in Object.FindObjectsOfType<DontDestroy>() ){
             if (gameObject.scene.buildIndex == -1)
             {
                 Destroy(item.gameObject);
             }
-        }
-        if (SceneManager.GetActiveScene().buildIndex != 0 )
-        {
-            SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex - 1);
-        }
-        else{
-            SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
         }
         
     }
