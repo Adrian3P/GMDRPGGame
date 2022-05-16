@@ -47,3 +47,13 @@ For portal:
 https://www.youtube.com/watch?v=cuQao3hEKfs
 
 Besides these youtube tutorials, I also used some videos from Unity learn which I don't remember if I used something from them or not and I also used some examples I found online when I was goggling for answers but I did not save the link for each site.
+
+CONTROLS:
+Q - 1st inventory item
+W - 2nd inventory item
+E - 3rd inventory item
+R - 4th inventory item
+Right click + move - moves the screen
+Scroll up/down - Zooms in and out
+ESC - Turn off target HUD
+
